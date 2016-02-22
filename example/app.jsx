@@ -18,17 +18,24 @@ class App extends React.Component {
 
   render() {
     const background = this.state.switchEnabled ? '#2196f3' : '#DCDCDC';
+    const enabledStyles = {
+      color: '#2196f3'
+    };
+    const disabledStyles = {
+      color: '#F32121'
+    }
+
     return (
       <section className='container' style={{ background }}>
         <FlatSwitch
-          width={300}
-          height={60}
+          width={150}
+          height={40}
           enabled={this.state.switchEnabled}
           enabledText='enable'
+          enabledStyles={enabledStyles}
+          disabledStyles={disabledStyles}
           disabledText='disable'
-          onClick={this.handleOnClick.bind(this)}
-          transitionDuration={0.5}
-          style={{ color: 'blue' }}
+          onSwitch={this.handleOnClick.bind(this)}
         />
       </section>
     );
