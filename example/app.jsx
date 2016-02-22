@@ -31,10 +31,10 @@ class App extends React.Component {
           width={150}
           height={40}
           enabled={this.state.switchEnabled}
-          enabledText='enable'
+          enableText='enable'
           enabledStyles={enabledStyles}
           disabledStyles={disabledStyles}
-          disabledText='disable'
+          disableText='disable'
           onSwitch={this.handleOnClick.bind(this)}
         />
       </section>

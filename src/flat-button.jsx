@@ -93,10 +93,10 @@ class FlatSwitch extends React.Component {
           onMouseUp={this.handleMouseUp}>
 
           <span style={{ ...sideStyles, ...styles.front, ...this.props.enabledStyles }}>
-            { this.props.enabledText }
+            { this.props.enableText }
           </span>
           <span style={{ ...sideStyles, ...styles.back, ...this.props.disabledStyles }}>
-            { this.props.disabledText }
+            { this.props.disableText }
           </span>
 
         </button>
@@ -107,8 +107,8 @@ class FlatSwitch extends React.Component {
 
 FlatSwitch.propTypes = {
 	enabled: React.PropTypes.bool.isRequired,
-	enabledText: React.PropTypes.string,
-	disabledText: React.PropTypes.string,
+	enableText: React.PropTypes.string,
+	disableText: React.PropTypes.string,
 	onSwitch: React.PropTypes.func,
 	hideBoxShadow: React.PropTypes.bool,
 	width: React.PropTypes.oneOfType(['string', 'number']),
