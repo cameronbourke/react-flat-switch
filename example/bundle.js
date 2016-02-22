@@ -93,12 +93,6 @@
 	    key: 'render',
 	    value: function render() {
 	      var background = this.state.switchEnabled ? '#2196f3' : '#DCDCDC';
-	      var enabledStyles = {
-	        color: '#2196f3'
-	      };
-	      var disabledStyles = {
-	        color: '#F32121'
-	      };
 	
 	      return _react2.default.createElement(
 	        'section',
@@ -108,8 +102,6 @@
 	          height: 40,
 	          enabled: this.state.switchEnabled,
 	          enableText: 'enable',
-	          enabledStyles: enabledStyles,
-	          disabledStyles: disabledStyles,
 	          disableText: 'disable',
 	          onSwitch: this.handleOnClick.bind(this)
 	        })

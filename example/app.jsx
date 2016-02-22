@@ -18,12 +18,6 @@ class App extends React.Component {
 
   render() {
     const background = this.state.switchEnabled ? '#2196f3' : '#DCDCDC';
-    const enabledStyles = {
-      color: '#2196f3'
-    };
-    const disabledStyles = {
-      color: '#F32121'
-    }
 
     return (
       <section className='container' style={{ background }}>
@@ -32,8 +26,6 @@ class App extends React.Component {
           height={40}
           enabled={this.state.switchEnabled}
           enableText='enable'
-          enabledStyles={enabledStyles}
-          disabledStyles={disabledStyles}
           disableText='disable'
           onSwitch={this.handleOnClick.bind(this)}
         />
