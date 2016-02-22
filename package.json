@@ -21,6 +21,9 @@
     "prepublish": "npm run compile",
     "test": "tape -r babel-register ./src/**/*.spec.js | tap-spec"
   },
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "babel-cli": "6.3.17",
     "babel-core": "6.3.26",
