@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const styles = {
   container: {
@@ -44,7 +45,7 @@ class FlatSwitch extends React.Component {
     this.state = {};
 
     this.handleMouseDown = this.handleMouseDown.bind(this);
-    this.handleMouseUp   = this.handleMouseUp.bind(this);
+    this.handleMouseUp = this.handleMouseUp.bind(this);
   }
 
   handleMouseDown() {
@@ -55,8 +56,8 @@ class FlatSwitch extends React.Component {
   }
 
   handleMouseUp() {
-		const enabled = !this.props.enabled;
-		this.props.onSwitch(enabled);
+    const enabled = !this.props.enabled;
+    this.props.onSwitch(enabled);
     this.setState({
       mouseDown: false,
       mouseUp: true
@@ -64,10 +65,10 @@ class FlatSwitch extends React.Component {
   }
 
   render() {
-		const { mouseDown, rotateX } = this.state;
+    const { mouseDown, rotateX } = this.state;
     const { enabled, hideBoxShadow, width, height } = this.props;
 
-    const sideStyles =  Object.assign({}, styles.side, { lineHeight: height + 'px' });
+    const sideStyles = Object.assign({}, styles.side, { lineHeight: height + 'px' });
 
     let switchStyles = {
       ...styles.switch,
@@ -76,13 +77,13 @@ class FlatSwitch extends React.Component {
     };
 
     if (mouseDown) {
-      switchStyles.transform = `rotate3d(1, 0, 0, ${enabled ? 180: 0}deg) scale(1.2)`;
+      switchStyles.transform = `rotate3d(1, 0, 0, ${enabled ? 180 : 0}deg) scale(1.2)`;
       if (!hideBoxShadow) switchStyles.boxShadow = `0px ${enabled ? 32 : -32}px 56px rgba(0,0,0,.1)`;
     }
 
     else {
-      switchStyles.transform = `rotate3d(1, 0, 0, ${enabled ? 180: 0}deg)`;
-      if (!hideBoxShadow) switchStyles.boxShadow = `0px ${enabled ? 2 : -2 }px 4px rgba(0,0,0,.1)`;
+      switchStyles.transform = `rotate3d(1, 0, 0, ${enabled ? 180 : 0}deg)`;
+      if (!hideBoxShadow) switchStyles.boxShadow = `0px ${enabled ? 2 : -2}px 4px rgba(0,0,0,.1)`;
     }
 
     return (
@@ -93,10 +94,10 @@ class FlatSwitch extends React.Component {
           onMouseUp={this.handleMouseUp}>
 
           <span style={{ ...sideStyles, ...styles.front, ...this.props.enabledStyles }}>
-            { this.props.enableText }
+            {this.props.enableText}
           </span>
           <span style={{ ...sideStyles, ...styles.back, ...this.props.disabledStyles }}>
-            { this.props.disableText }
+            {this.props.disableText}
           </span>
 
         </button>
@@ -106,25 +107,25 @@ class FlatSwitch extends React.Component {
 }
 
 FlatSwitch.propTypes = {
-	enabled: React.PropTypes.bool.isRequired,
-	enableText: React.PropTypes.string,
-	disableText: React.PropTypes.string,
-	onSwitch: React.PropTypes.func,
-	hideBoxShadow: React.PropTypes.bool,
-	width: React.PropTypes.oneOfType(['string', 'number']),
-	height: React.PropTypes.oneOfType(['string', 'number']),
-	className: React.PropTypes.string,
-	enabledStyles: React.PropTypes.object,
-  disabledStyles: React.PropTypes.object,
+  enabled: PropTypes.bool.isRequired,
+  enableText: PropTypes.string,
+  disableText: PropTypes.string,
+  onSwitch: PropTypes.func,
+  hideBoxShadow: PropTypes.bool,
+  width: PropTypes.oneOfType(['string', 'number']),
+  height: PropTypes.oneOfType(['string', 'number']),
+  className: PropTypes.string,
+  enabledStyles: PropTypes.object,
+  disabledStyles: PropTypes.object,
 };
 
 FlatSwitch.defaultProps = {
-	enabled: true,
-	enabledText: 'enable',
-	disabledText: 'disable',
-	hideBoxShadow: false,
-	width: 150,
-	height: 40
+  enabled: true,
+  enabledText: 'enable',
+  disabledText: 'disable',
+  hideBoxShadow: false,
+  width: 150,
+  height: 40
 };
 
 export default FlatSwitch;

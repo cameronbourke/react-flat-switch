@@ -17,7 +17,7 @@
   "scripts": {
     "start": "webpack-dev-server --inline --hot --content-base example/ --config webpack.config.js",
     "build": "webpack",
-    "compile": "babel src/flat-button.jsx --out-file dist/index.js",
+    "compile": "mkdir -p dist && babel src/flat-button.jsx --out-file dist/index.js",
     "prepublish": "npm run compile",
     "test": "tape -r babel-register ./src/**/*.spec.js | tap-spec"
   },
@@ -36,5 +36,8 @@
     "react": "~0.14.7"
   },
   "author": "Cameron Bourke <cameron2295@gmail.com> (http://cameronbourke.com/)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "prop-types": "^15.6.0"
+  }
 }
